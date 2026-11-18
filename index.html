@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OXALISS SCHOOL CHATBOT</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">
+        <div class="brand">
+            <span class="brand-title">OXALISS SCHOOL CHATBOT</span>
+            <img src="/static/oxaliss-logo.png" alt="Bharathi's OXALISS logo" class="brand-logo">
+        </div>
+        <button id="modeToggle" type="button">🌙 Dark</button>
+        <button id="voiceToggle" type="button" style="display:none;">🎤 ON</button>
+        <button id="stopBtn" type="button">⏹ Stop</button>
+    </div>
+
+    <div class="language-control">
+        <label for="languageSelect">🌐 Language</label>
+        <select id="languageSelect" aria-label="Select language">
+            <option value="English">🇬🇧 English</option>
+            <option value="Tamil">🇮🇳 தமிழ் (Tamil)</option>
+            <option value="Hindi">🇮🇳 हिन्दी (Hindi)</option>
+            <option value="Telugu">🇮🇳 తెలుగు (Telugu)</option>
+            <option value="Kannada">🇮🇳 ಕನ್ನಡ (Kannada)</option>
+            <option value="Malayalam">🇮🇳 മലയാളം (Malayalam)</option>
+        </select>
+    </div>
+
+    <div class="chat-box" id="chatBox"></div>
+
+    <div class="chat-input">
+        <input
+            type="text"
+            id="userInput"
+            placeholder="Ask about the school..."
+            autocomplete="off"
+        />
+        <button id="micBtn" type="button" title="Speak">🎤</button>
+        <button id="sendBtn" type="button" title="Send">➤</button>
+    </div>
+</div>
+
+<script src="/static/script.js"></script>
+</body>
+</html>

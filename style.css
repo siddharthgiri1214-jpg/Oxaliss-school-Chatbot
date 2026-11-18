@@ -1,0 +1,276 @@
+/* Reset and general styling */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Chat container */
+.chat-container {
+    width: 380px;
+    height: 550px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Chat header */
+.chat-header {
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 16px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Chat box */
+.chat-box {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    background: #f7f9fc;
+}
+
+/* Messages */
+.message {
+    max-width: 80%;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.message.user {
+    background: #4facfe;
+    color: white;
+    margin-left: auto;
+    border-bottom-right-radius: 5px;
+}
+
+.message.bot {
+    background: #e4e6eb;
+    color: #333;
+    margin-right: auto;
+    border-bottom-left-radius: 5px;
+}
+
+/* Typing animation */
+.message.typing span.dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 2px;
+    background: #888;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+}
+
+.message.typing span.dot:nth-child(2) { animation-delay: 0.2s; }
+.message.typing span.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+    0%, 80%, 100% { opacity: 0; }
+    40% { opacity: 1; }
+}
+
+/* Chat input */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background: white;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.chat-input button {
+    border: none;
+    background: #4facfe;
+    color: white;
+    margin-left: 8px;
+    padding: 0 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background: #00c6ff;
+}
+
+/* Dark mode */
+body.dark-mode {
+    background: #1e1e1e;
+    color: #eee;
+}
+
+body.dark-mode .chat-container {
+    background: #2c2c2c;
+}
+
+body.dark-mode .chat-box {
+    background: #1f1f1f;
+}
+
+body.dark-mode .message.user {
+    background: #4facfe;
+    color: white;
+}
+
+body.dark-mode .message.bot {
+    background: #3a3a3a;
+    color: #eee;
+}
+
+body.dark-mode .chat-input {
+    background: #2c2c2c;
+    border-top: 1px solid #444;
+}
+
+body.dark-mode .chat-input input {
+    background: #1f1f1f;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+/* Mobile responsive */
+@media screen and (max-width: 420px) {
+    .chat-container {
+        width: 95%;
+        height: 80vh;
+    }
+}
+
+/* Header buttons spacing */
+.chat-header button {
+    background: rgba(255,255,255,0.3);
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.chat-header button:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+/* ===== Multi-language selector (inside the chat window) ===== */
+.language-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    color: #333;
+}
+.language-control label {
+    font-weight: 600;
+    white-space: nowrap;
+}
+.language-control select {
+    flex: 1;
+    min-width: 0;
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #333;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+body.dark-mode .language-control {
+    background: #2c2c2c;
+    border-bottom: 1px solid #444;
+    color: #eee;
+}
+body.dark-mode .language-control select {
+    background: #1f1f1f;
+    color: #eee;
+    border: 1px solid #555;
+}
+
+/* OXALISS branding: larger logo at the top-right of the header */
+.chat-header {
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+}
+
+.brand-title {
+    flex: 1 1 auto;
+    font-size: 15px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.brand-logo {
+    display: block;
+    width: 132px;
+    height: 72px;
+    object-fit: contain;
+    object-position: right center;
+    flex: 0 0 auto;
+}
+
+@media screen and (max-width: 420px) {
+    .chat-header {
+        padding: 9px 10px;
+        gap: 6px;
+        font-size: 14px;
+    }
+    .brand-logo {
+        width: 108px;
+        height: 60px;
+    }
+    .brand-title {
+        font-size: 12px;
+    }
+    .chat-header button {
+        padding: 5px 7px;
+        font-size: 11px;
+    }
+}
+
+/* Keep the input row buttons a fixed size */
+.chat-input button {
+    flex: 0 0 auto;
+    min-width: 40px;
+    height: 40px;
+}
